@@ -34,7 +34,31 @@ public class App {
 					break;
 				}
 
-				if (cmd.equals("article write")) {
+				if (cmd.equals("member join")) {
+					System.out.println("== 회원 가입 ==");
+
+					System.out.printf("로그인 아이디 : ");
+					String loginId = sc.nextLine().trim();
+					System.out.printf("로그인 비밀번호 : ");
+					String loginPw = sc.nextLine().trim();
+					System.out.printf("로그인 비밀번호 확인 : ");
+					String loginPwChk = sc.nextLine().trim();
+					System.out.printf("이름 : ");
+					String name = sc.nextLine().trim();
+
+					SecSql sql = new SecSql();
+					sql.append("INSERT INTO `member`");
+					sql.append("SET regDate = NOW()");
+					sql.append(", updateDate = NOW()");
+					sql.append(", loginId = ?", loginId);
+					sql.append(", loginPw = ?", loginPw);
+					sql.append(", name = ?", name);
+					
+					DBUtil.insert(conn, sql);
+					
+					System.out.printf("%s님 환영합니다~\n", name);
+
+				} else if (cmd.equals("article write")) {
 					System.out.println("== 게시물 작성 ==");
 
 					System.out.printf("제목 : ");
@@ -145,14 +169,16 @@ public class App {
 						System.out.printf("%d번 게시글은 존재하지 않습니다\n", id);
 						continue;
 					}
-					
 					sql = new SecSql();
 					sql.append("DELETE FROM article");
 					sql.append("WHERE id = ?", id);
 					
 					DBUtil.delete(conn, sql);
 					
+					System.out.printf("== %d번 게시글 삭제 ==\n", id);
 					System.out.printf("%d번 게시글이 삭제되었습니다\n", id);
+				} else {
+					System.out.println("존재하지 않는 명령어 입니다");
 				}
 			}
 		} catch (ClassNotFoundException e) {
