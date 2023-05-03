@@ -131,6 +131,28 @@ public class App {
 					DBUtil.update(conn, sql);
 					
 					System.out.printf("%d번 게시글이 수정되었습니다\n", id);
+				} else if (cmd.startsWith("article delete ")) {
+					int id = Integer.parseInt(cmd.split(" ")[2]);
+
+					SecSql sql = new SecSql();
+					sql.append("SELECT COUNT(*) > 0");
+					sql.append("FROM article");
+					sql.append("WHERE id = ?", id);
+					
+					boolean isHaveArticle = DBUtil.selectRowBooleanValue(conn, sql);
+					
+					if (!isHaveArticle) {
+						System.out.printf("%d번 게시글은 존재하지 않습니다\n", id);
+						continue;
+					}
+					
+					sql = new SecSql();
+					sql.append("DELETE FROM article");
+					sql.append("WHERE id = ?", id);
+					
+					DBUtil.delete(conn, sql);
+					
+					System.out.printf("%d번 게시글이 삭제되었습니다\n", id);
 				}
 			}
 		} catch (ClassNotFoundException e) {
