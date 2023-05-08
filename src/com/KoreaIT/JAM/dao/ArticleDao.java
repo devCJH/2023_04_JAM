@@ -47,4 +47,33 @@ public class ArticleDao {
 		return DBUtil.selectRow(conn, sql);
 	}
 
+	public int getArticleCount(int id) {
+		
+		SecSql sql = SecSql.from("SELECT COUNT(*)");
+		sql.append("FROM article");
+		sql.append("WHERE id = ?", id);
+		
+		return DBUtil.selectRowIntValue(conn, sql);
+	}
+
+	public void doModify(String title, String body, int id) {
+		
+		SecSql sql = SecSql.from("UPDATE article");
+		sql.append("SET updateDate = NOW()");
+		sql.append(", title = ?", title);
+		sql.append(", `body` = ?", body);
+		sql.append("WHERE id = ?", id);
+		
+		DBUtil.update(conn, sql);
+	}
+
+	public void doDelete(int id) {
+		
+		SecSql sql = new SecSql();
+		sql.append("DELETE FROM article");
+		sql.append("WHERE id = ?", id);
+		
+		DBUtil.delete(conn, sql);
+	}
+
 }

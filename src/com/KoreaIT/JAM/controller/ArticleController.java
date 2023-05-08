@@ -65,4 +65,41 @@ public class ArticleController {
 		System.out.printf("내용 : %s\n", article.body);
 	}
 
+	public void doModify(String cmd) {
+		int id = Integer.parseInt(cmd.split(" ")[2]);
+
+		int articleCount = articleService.getArticleCount(id);
+		
+		if (articleCount == 0) {
+			System.out.printf("%d번 게시글은 존재하지 않습니다\n", id);
+			return;
+		}
+		
+		System.out.printf("== %d번 게시글 수정 ==\n", id);
+		System.out.printf("수정할 제목 : ");
+		String title = sc.nextLine();
+		System.out.printf("수정할 내용 : ");
+		String body = sc.nextLine();
+
+		articleService.doModify(title, body, id);
+		
+		System.out.printf("%d번 게시글이 수정되었습니다\n", id);
+	}
+
+	public void doDelete(String cmd) {
+		int id = Integer.parseInt(cmd.split(" ")[2]);
+
+		int articleCount = articleService.getArticleCount(id);
+		
+		if (articleCount == 0) {
+			System.out.printf("%d번 게시글은 존재하지 않습니다\n", id);
+			return;
+		}
+		
+		articleService.doDelete(id);
+		
+		System.out.printf("== %d번 게시글 삭제 ==\n", id);
+		System.out.printf("%d번 게시글이 삭제되었습니다\n", id);
+	}
+
 }
