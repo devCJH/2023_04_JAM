@@ -1,7 +1,7 @@
 package com.KoreaIT.JAM.session;
 
 import com.KoreaIT.JAM.dto.Member;
-
+ 
 public class Session {
 	public static int loginedMemeberId;
 	public static Member loginedMember;

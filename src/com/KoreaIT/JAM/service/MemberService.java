@@ -7,7 +7,7 @@ import com.KoreaIT.JAM.dao.MemberDao;
 import com.KoreaIT.JAM.dto.Member;
 
 public class MemberService {
-
+ 
 	MemberDao memberDao;
 
 	public MemberService(Connection conn) {

@@ -8,7 +8,7 @@ import com.KoreaIT.JAM.util.DBUtil;
 import com.KoreaIT.JAM.util.SecSql;
 
 public class ArticleDao {
-
+ 
 	private Connection conn;
 
 	public ArticleDao(Connection conn) {

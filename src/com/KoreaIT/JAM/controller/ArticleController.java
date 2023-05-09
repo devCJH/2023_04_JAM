@@ -7,7 +7,7 @@ import java.util.Scanner;
 import com.KoreaIT.JAM.dto.Article;
 import com.KoreaIT.JAM.service.ArticleService;
 import com.KoreaIT.JAM.session.Session;
-
+ 
 public class ArticleController {
 
 	private Scanner sc;

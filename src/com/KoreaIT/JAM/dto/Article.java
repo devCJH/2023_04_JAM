@@ -2,7 +2,7 @@ package com.KoreaIT.JAM.dto;
 
 import java.time.LocalDateTime;
 import java.util.Map;
-
+ 
 public class Article {
 	public int id;
 	public LocalDateTime regDate;

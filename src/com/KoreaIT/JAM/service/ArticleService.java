@@ -9,7 +9,7 @@ import com.KoreaIT.JAM.dao.ArticleDao;
 import com.KoreaIT.JAM.dto.Article;
 
 public class ArticleService {
-
+ 
 	private ArticleDao articleDao;
 
 	public ArticleService(Connection conn) {

@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 import com.KoreaIT.JAM.controller.ArticleController;
 import com.KoreaIT.JAM.controller.MemberController;
-
+ 
 public class App {
 	public void run() {
 		System.out.println("== 프로그램 시작 ==");

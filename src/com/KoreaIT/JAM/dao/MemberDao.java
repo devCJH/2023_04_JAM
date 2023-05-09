@@ -7,7 +7,7 @@ import com.KoreaIT.JAM.util.DBUtil;
 import com.KoreaIT.JAM.util.SecSql;
 
 public class MemberDao {
-
+ 
 	private Connection conn;
 
 	public MemberDao(Connection conn) {

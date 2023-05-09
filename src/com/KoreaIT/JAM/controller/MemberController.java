@@ -6,7 +6,7 @@ import java.util.Scanner;
 import com.KoreaIT.JAM.dto.Member;
 import com.KoreaIT.JAM.service.MemberService;
 import com.KoreaIT.JAM.session.Session;
-
+ 
 public class MemberController {
 
 	private Scanner sc;
