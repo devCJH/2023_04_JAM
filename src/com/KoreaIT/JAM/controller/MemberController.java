@@ -3,7 +3,9 @@ package com.KoreaIT.JAM.controller;
 import java.sql.Connection;
 import java.util.Scanner;
 
+import com.KoreaIT.JAM.Member;
 import com.KoreaIT.JAM.service.MemberService;
+import com.KoreaIT.JAM.session.Session;
 
 public class MemberController {
 
@@ -89,6 +91,48 @@ public class MemberController {
 		
 		System.out.printf("%s님 환영합니다~\n", name);
 
+	}
+
+	public void doLogin() {
+		System.out.println("== 로그인 ==");
+		
+		while(true) {
+			System.out.printf("로그인 아이디 : ");
+			String loginId = sc.nextLine().trim();
+			
+			if(loginId.length() == 0) {
+				System.out.println("아이디를 입력해주세요");
+				continue;
+			}
+			
+			System.out.printf("로그인 비밀번호 : ");
+			String loginPw = sc.nextLine();
+			
+			if(loginPw.length() == 0) {
+				System.out.println("비밀번호를 입력해주세요");
+				continue;
+			}
+			
+			Member member = memberService.getMember(loginId);
+			
+			if (member == null) {
+				System.out.printf("%s은(는) 존재하지 않는 아이디입니다\n", loginId);
+				return;
+			}
+			
+			if (member.loginPw.equals(loginPw) == false) {
+				System.out.println("비밀번호가 일치하지 않습니다");
+				return;
+			}
+			
+			System.out.printf("%s님 환영합니다\n", member.name);
+			
+			Session.loginedMemeberId = member.id;
+			Session.loginedMember = member;
+			
+			break;
+		}
+		
 	}
 	
 }
