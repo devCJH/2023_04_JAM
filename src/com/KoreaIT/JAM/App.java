@@ -15,7 +15,7 @@ public class App {
 		Scanner sc = new Scanner(System.in);
 
 		Connection conn = null;
-		
+
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			String url = "jdbc:mysql://127.0.0.1:3306/jdbc_article_manager?useUnicode=true&characterEncoding=utf8&autoReconnect=true&serverTimezone=Asia/Seoul&useOldAliasMetadataBehavior=true&zeroDateTimeNehavior=convertToNull";
@@ -24,7 +24,7 @@ public class App {
 
 			MemberController memberController = new MemberController(conn, sc);
 			ArticleController articleController = new ArticleController(conn, sc);
-			
+
 			while (true) {
 				System.out.printf("명령어) ");
 				String cmd = sc.nextLine().trim();

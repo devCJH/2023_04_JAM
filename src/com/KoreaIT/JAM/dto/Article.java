@@ -9,7 +9,7 @@ public class Article {
 	public LocalDateTime updateDate;
 	public String title;
 	public String body;
-	
+
 	public Article(Map<String, Object> articleMap) {
 		this.id = (int) articleMap.get("id");
 		this.regDate = (LocalDateTime) articleMap.get("regDate");
@@ -23,5 +23,5 @@ public class Article {
 		return "Article [id=" + id + ", regDate=" + regDate + ", updateDate=" + updateDate + ", title=" + title
 				+ ", body=" + body + "]";
 	}
-	
+
 }

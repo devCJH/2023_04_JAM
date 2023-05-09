@@ -5,7 +5,7 @@ import com.KoreaIT.JAM.dto.Member;
 public class Session {
 	public static int loginedMemeberId;
 	public static Member loginedMember;
-	
+
 	static {
 		loginedMemeberId = -1;
 		loginedMember = null;
@@ -15,7 +15,7 @@ public class Session {
 		loginedMemeberId = member.id;
 		loginedMember = member;
 	}
-	
+
 	public static void logout() {
 		loginedMemeberId = -1;
 		loginedMember = null;

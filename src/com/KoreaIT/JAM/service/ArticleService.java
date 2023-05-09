@@ -11,7 +11,7 @@ import com.KoreaIT.JAM.dto.Article;
 public class ArticleService {
 
 	private ArticleDao articleDao;
-	
+
 	public ArticleService(Connection conn) {
 		this.articleDao = new ArticleDao(conn);
 	}
@@ -21,26 +21,26 @@ public class ArticleService {
 	}
 
 	public List<Article> getArticles() {
-		
+
 		List<Map<String, Object>> articleListMap = articleDao.getArticles();
-		
+
 		List<Article> articles = new ArrayList<>();
-		
-		for(Map<String, Object> articleMap : articleListMap) {
+
+		for (Map<String, Object> articleMap : articleListMap) {
 			articles.add(new Article(articleMap));
 		}
-		
+
 		return articles;
 	}
 
 	public Article getArticle(int id) {
-		
+
 		Map<String, Object> articleMap = articleDao.getArticle(id);
-		
+
 		if (articleMap.isEmpty()) {
 			return null;
 		}
-		
+
 		return new Article(articleMap);
 	}
 
