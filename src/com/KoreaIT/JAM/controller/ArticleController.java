@@ -82,10 +82,15 @@ public class ArticleController {
 
 		int id = Integer.parseInt(cmd.split(" ")[2]);
 
-		int articleCount = articleService.getArticleCount(id);
-
-		if (articleCount == 0) {
+		Article article = articleService.getArticle(id);
+		
+		if (article == null) {
 			System.out.printf("%d번 게시글은 존재하지 않습니다\n", id);
+			return;
+		}
+		
+		if (article.memberId != Session.loginedMemeberId) {
+			System.out.println("해당 게시물에 대한 권한이 없습니다");
 			return;
 		}
 
@@ -108,10 +113,15 @@ public class ArticleController {
 
 		int id = Integer.parseInt(cmd.split(" ")[2]);
 
-		int articleCount = articleService.getArticleCount(id);
-
-		if (articleCount == 0) {
+		Article article = articleService.getArticle(id);
+		
+		if (article == null) {
 			System.out.printf("%d번 게시글은 존재하지 않습니다\n", id);
+			return;
+		}
+		
+		if (article.memberId != Session.loginedMemeberId) {
+			System.out.println("해당 게시물에 대한 권한이 없습니다");
 			return;
 		}
 
