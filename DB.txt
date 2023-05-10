@@ -21,12 +21,14 @@ CREATE TABLE `member`(
     `name` VARCHAR(50) NOT NULL
 );
 
+/*
 INSERT INTO article
 SET regDate = NOW(),
 updateDate = NOW(),
 memberId = 1,
 title = CONCAT('제목', RAND()),
 `body` = CONCAT('내용', RAND());
+*/
 
 INSERT INTO article
 SET regDate = NOW(),

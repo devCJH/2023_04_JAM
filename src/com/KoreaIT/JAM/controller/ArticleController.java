@@ -47,10 +47,11 @@ public class ArticleController {
 		}
 
 		System.out.println("== 게시물 리스트 ==");
-		System.out.println("번호	|	제목	|	날짜");
+		System.out.println("번호	|	제목	|	작성자	|	날짜");
 
 		for (Article article : articles) {
-			System.out.printf("%d	|	%s	|	%s\n", article.id, article.title, Util.datetimeFormat(article.regDate));
+			
+			System.out.printf("%d	|	%s	|	%s	|	%s\n", article.id, article.title, article.writerName, Util.datetimeFormat(article.regDate));
 		}
 	}
 
@@ -68,6 +69,7 @@ public class ArticleController {
 		System.out.printf("번호 : %d\n", article.id);
 		System.out.printf("작성날짜 : %s\n", Util.datetimeFormat(article.regDate));
 		System.out.printf("수정날짜 : %s\n", Util.datetimeFormat(article.updateDate));
+		System.out.printf("작성자 : %s\n", article.writerName);
 		System.out.printf("제목 : %s\n", article.title);
 		System.out.printf("내용 : %s\n", article.body);
 	}
