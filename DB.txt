@@ -10,7 +10,8 @@ CREATE TABLE article(
     `body` TEXT NOT NULL
 );
 
-alter table article add column memberId int unsigned not null after updateDate;
+ALTER TABLE article ADD COLUMN memberId INT UNSIGNED NOT NULL AFTER updateDate;
+ALTER TABLE article ADD COLUMN vCnt INT UNSIGNED NOT NULL DEFAULT 0;
 
 CREATE TABLE `member`(
     id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
