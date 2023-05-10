@@ -10,6 +10,8 @@ CREATE TABLE article(
     `body` TEXT NOT NULL
 );
 
+alter table article add column memberId int unsigned not null after updateDate;
+
 CREATE TABLE `member`(
     id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     regDate DATETIME NOT NULL,
@@ -22,24 +24,28 @@ CREATE TABLE `member`(
 INSERT INTO article
 SET regDate = NOW(),
 updateDate = NOW(),
+memberId = 1,
 title = CONCAT('제목', RAND()),
 `body` = CONCAT('내용', RAND());
 
 INSERT INTO article
 SET regDate = NOW(),
 updateDate = NOW(),
+memberId = 1,
 title = '제목1',
 `body` = '내용1';
 
 INSERT INTO article
 SET regDate = NOW(),
 updateDate = NOW(),
+memberId = 1,
 title = '제목2',
 `body` = '내용2';
 
 INSERT INTO article
 SET regDate = NOW(),
 updateDate = NOW(),
+memberId = 1,
 title = '제목3',
 `body` = '내용3';
 
